@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predicción de riesgo cardíaco</title>
+</head>
+<body>
+    <h2>Formulario de datos clínicos</h2>
+    <form method="post">
+        Edad: <input type="number" name="Age"><br>
+        Presión en reposo: <input type="number" name="RestingBP"><br>
+        Colesterol: <input type="number" name="Cholesterol"><br>
+        Frecuencia máxima: <input type="number" name="MaxHR"><br>
+        Oldpeak: <input type="number" name="Oldpeak"><br>
+        Sexo: 
+        <select name="Sex">
+            <option value="M">Masculino</option>
+            <option value="F">Femenino</option>
+        </select><br>
+        ¿Glucemia alta?: <input type="number" name="FastingBS" min="0" max="1"><br>
+        Tipo de dolor:
+        <select name="ChestPainType">
+            <option value="ATA">ATA</option>
+            <option value="NAP">NAP</option>
+            <option value="ASY">ASY</option>
+            <option value="TA">TA</option>
+        </select><br>
+        ECG en reposo:
+        <select name="RestingECG">
+            <option value="Normal">Normal</option>
+            <option value="LVH">LVH</option>
+            <option value="ST">ST</option>
+        </select><br>
+        Angina inducida por esfuerzo:
+        <select name="ExerciseAngina">
+            <option value="N">No</option>
+            <option value="Y">Sí</option>
+        </select><br>
+        Pendiente ST:
+        <select name="ST_Slope">
+            <option value="Up">Up</option>
+            <option value="Flat">Flat</option>
+            <option value="Down">Down</option>
+        </select><br><br>
+
+        <input type="submit" value="Predecir">
+    </form>
+
+    {% if resultado %}
+        <h3>Resultado: {{ resultado }}</h3>
+        <p>Probabilidad: {{ probabilidad }}</p>
+    {% endif %}
+</body>
+</html>
